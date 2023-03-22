@@ -21,35 +21,28 @@ function getUserMediaSupported() {
   // Placeholder function for next step. Paste over this in the next step.
   function enableCam(event) {
   }
-  const constraints = {
-    video: {
-      facingMode: 'environment'
-    }
-  };
 
-  function enableCam(event) {
+  // Enable the live webcam view and start classification.
+function enableCam(event) {
     // Only continue if the COCO-SSD has finished loading.
     if (!model) {
       return;
     }
-
+    
     // Hide the button once clicked.
-    event.target.classList.add('removed');
-
+    event.target.classList.add('removed');  
+    
     // getUsermedia parameters to force video but not audio.
     const constraints = {
-      video: {
-        facingMode: 'environment'
-      }
+      video: true
     };
-
+  
     // Activate the webcam stream.
     navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
       video.srcObject = stream;
       video.addEventListener('loadeddata', predictWebcam);
     });
-}
-
+  }
 
   // Placeholder function for next step.
 function predictWebcam() {
@@ -90,7 +83,7 @@ function predictWebcam() {
       // If we are over 66% sure we are sure we classified it right, draw it!
       if (predictions[n].score > 0.66) {
         const p = document.createElement('p');
-        p.innerText = predictions[n].name  + ' - with ' 
+        p.innerText = predictions[n].MultiClassNonMaxSuppression  + ' - with ' 
             + Math.round(parseFloat(predictions[n].score) * 100) 
             + '% confidence.';
         p.style = 'margin-left: ' + predictions[n].bbox[0] + 'px; margin-top: '
@@ -113,5 +106,5 @@ function predictWebcam() {
     
     // Call this function again to keep predicting when the browser is ready.
     window.requestAnimationFrame(predictWebcam);
-  });
+  });
 }
