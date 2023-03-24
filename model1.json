@@ -1,39 +1,31 @@
 {
-  "folder": "my-project-name",
-  "filename": "msg-671380784-13647.jpg",
-  "path": "/my-project-name/msg-671380784-13647.jpg",
-  "source": {
-    "database": "Unspecified"
-  },
-  "size": {
-    "width": 1280,
-    "height": 960,
-    "depth": 3
-  },
-  "objects": [
-    {
-      "name": "8BAR-ID",
-      "pose": "Unspecified",
-      "truncated": 0,
-      "difficult": 0,
-      "bbox": {
-        "xmin": 486,
-        "ymin": 191,
-        "xmax": 935,
-        "ymax": 240
-      }
+  "image": {
+    "filename": "msg-671380784-13647.jpg",
+    "size": {
+      "height": 960,
+      "width": 1280
     },
-    {
-      "name": "8BAR-KG",
-      "pose": "Unspecified",
-      "truncated": 0,
-      "difficult": 0,
-      "bbox": {
-        "xmin": 269,
-        "ymin": 348,
-        "xmax": 1025,
-        "ymax": 460
-      }
-    }
-  ]
+    "objects": [
+      {
+        "bbox": [
+          486,
+          191,
+          449,
+          49
+        ],
+        "class": "8BAR-ID",
+        "score": 1.0
+      },
+      {
+        "bbox": [
+          269,
+          348,
+          756,
+          112
+        ],
+        "class": "8BAR-KG",
+        "score": 1.0
+      }
+    ]
+  }
 }
